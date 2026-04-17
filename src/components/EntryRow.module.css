@@ -1,0 +1,35 @@
+.entry {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.account {
+	flex: 1;
+}
+
+.amountGroup {
+	display: flex;
+	flex-shrink: 0;
+}
+
+.amountGroup .amount {
+	width: 80px;
+	border-radius: var(--radius-s) 0 0 var(--radius-s);
+	text-align: right;
+}
+
+.amountGroup .currency {
+	width: 48px;
+	border-radius: 0 var(--radius-s) var(--radius-s) 0;
+}
+
+.at {
+	color: var(--text-muted);
+	font-size: var(--font-ui-smaller);
+	flex-shrink: 0;
+}
+
+.remove {
+	flex-shrink: 0;
+}

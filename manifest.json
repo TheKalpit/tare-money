@@ -1,0 +1,10 @@
+{
+	"id": "tare-money",
+	"name": "Tare Money",
+	"version": "0.1.0",
+	"minAppVersion": "1.8.0",
+	"description": "A local-first money tracker.",
+	"author": "Kalpit Jain",
+	"authorUrl": "https://github.com/TheKalpit",
+	"isDesktopOnly": false
+}

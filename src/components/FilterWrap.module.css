@@ -1,0 +1,8 @@
+.filters {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 12px;
+	padding: 8px 12px;
+	background: var(--background-secondary);
+}

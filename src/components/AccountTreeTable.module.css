@@ -1,0 +1,125 @@
+.table {
+	--row-pad-y: 6px;
+	--line-x: 0.3em;
+	width: 100%;
+	border-collapse: collapse;
+	font-size: var(--font-ui-small);
+	/* height: 1px triggers height: 100% resolution on td in multi-row flex-height chain */
+	height: 1px;
+}
+
+.table tbody tr:hover {
+	background: var(--background-modifier-hover);
+}
+
+.table th {
+	text-align: left;
+	padding: var(--row-pad-y) 8px;
+	border-bottom: 2px solid var(--background-modifier-border);
+	color: var(--text-muted);
+	font-weight: 600;
+}
+
+.table td {
+	padding: 0 8px;
+	vertical-align: top;
+	height: 100%;
+}
+
+.treeCell {
+	display: flex;
+	align-items: stretch;
+	height: 100%;
+}
+
+.amountCell {
+	text-align: end !important;
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+	padding: var(--row-pad-y) 8px !important;
+}
+
+.parent {
+	cursor: pointer;
+}
+
+/* Tree structure */
+
+/* Base connector: fixed-width column for each depth level */
+.connector {
+	width: 0.9em;
+	flex-shrink: 0;
+	position: relative;
+}
+
+/* Full-row vertical line (│ or ├ stem) — at an ancestor's column or a middle-branch's column */
+.connectorLine::before,
+.branchMid::before {
+	content: "";
+	position: absolute;
+	left: var(--line-x);
+	top: 0;
+	bottom: 0;
+	border-left: 1px solid var(--text-faint);
+}
+
+/* Branch horizontal dash — anchored to first text line (not row middle) */
+.branch::after {
+	content: "";
+	position: absolute;
+	left: var(--line-x);
+	right: 0;
+	top: calc(var(--row-pad-y) + 0.5lh);
+	border-top: 1px solid var(--text-faint);
+}
+
+/* Last branch (└) — vertical stops at the first-line dash */
+.branchLast::before {
+	content: "";
+	position: absolute;
+	left: var(--line-x);
+	top: 0;
+	height: calc(var(--row-pad-y) + 0.5lh);
+	border-left: 1px solid var(--text-faint);
+}
+
+/* Downward link from an expanded parent to its first child — drawn in the parent's row
+   at the child's column, so multi-line parent rows still show a continuous tree line. */
+.childLink {
+	position: relative;
+	width: 0;
+	flex-shrink: 0;
+}
+
+.childLink::before {
+	content: "";
+	position: absolute;
+	left: var(--line-x);
+	top: calc(var(--row-pad-y) * 2 + 1lh);
+	bottom: 0;
+	border-left: 1px solid var(--text-faint);
+}
+
+.collapsed {
+	color: var(--text-muted);
+	user-select: none;
+	margin-left: 4px;
+	padding: var(--row-pad-y) 0;
+}
+
+.name {
+	white-space: nowrap;
+	padding: var(--row-pad-y) 0 var(--row-pad-y) 4px;
+}
+
+.totalRow td {
+	border-top: 2px solid var(--background-modifier-border);
+	font-weight: 600;
+}
+
+.empty {
+	text-align: center;
+	color: var(--text-faint);
+	font-style: italic;
+	padding: 16px 8px;
+}

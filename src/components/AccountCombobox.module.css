@@ -1,0 +1,37 @@
+.wrap {
+	position: relative;
+	flex: 1;
+	min-width: 0;
+}
+
+.menu {
+	position: fixed;
+	max-height: 250px;
+	overflow-y: auto;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	box-shadow: var(--shadow-s);
+	z-index: var(--layer-popover);
+}
+
+.menu:empty {
+	display: none;
+}
+
+.item {
+	padding: 4px 8px;
+	font-size: var(--font-ui-small);
+	cursor: pointer;
+}
+
+.item:hover {
+	background: var(--background-modifier-hover);
+}
+
+.highlighted {
+	background: var(--background-modifier-hover);
+}

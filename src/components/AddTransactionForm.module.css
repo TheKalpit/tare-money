@@ -1,0 +1,33 @@
+.wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.row {
+	display: flex;
+}
+
+.dateInput {
+	width: 100px;
+	flex-shrink: 0;
+	margin-right: 8px;
+}
+
+.descriptionInput {
+	flex-grow: 1;
+}
+
+.entries {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-bottom: 8px;
+}
+
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 8px;
+}
