@@ -1,0 +1,159 @@
+@import "react-datepicker/dist/react-datepicker.min.css";
+
+/* DatePicker — map hardcoded colors to Obsidian theme */
+.react-datepicker {
+	background: var(--background-primary);
+	border-color: var(--background-modifier-border);
+	color: var(--text-normal);
+}
+
+.react-datepicker__header {
+	background: var(--background-secondary);
+	border-color: var(--background-modifier-border);
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day {
+	color: var(--text-normal);
+}
+
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__day:not([aria-disabled="true"]):hover {
+	background: var(--background-modifier-hover);
+}
+
+.react-datepicker__day--selected {
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+}
+
+.react-datepicker__day--selected:hover {
+	background: var(--interactive-accent-hover);
+}
+
+.react-datepicker__navigation-icon::before {
+	border-color: var(--text-muted);
+}
+
+.react-datepicker__today-button {
+	background: var(--background-secondary);
+	border-color: var(--background-modifier-border);
+	color: var(--text-normal);
+}
+
+/* Stale indicator dot */
+.tare-money-icon-stale {
+	position: relative;
+}
+
+.tare-money-icon-stale::after {
+	content: "";
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--interactive-accent);
+}
+
+/* Stale banner */
+.tare-stale-banner {
+	padding: 8px 16px;
+	background: var(--background-modifier-message);
+	font-size: var(--font-ui-small);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.tare-stale-banner,
+.tare-stale-banner button {
+	color: var(--text-warning);
+	cursor: pointer;
+}
+
+.tare-stale-banner:hover {
+	background: var(--background-modifier-hover);
+}
+
+/* Input fields */
+.tare-label {
+	color: var(--text-faint);
+	font-size: var(--font-ui-small);
+}
+
+.tare-input {
+	padding: 6px 8px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	background: var(--background-primary);
+	color: var(--text-normal);
+	font-size: var(--font-ui-small);
+}
+
+.tare-date-input {
+	width: 100%;
+	max-width: 120px;
+}
+
+.tare-date-input:focus,
+.tare-input:focus {
+	box-shadow: 0 0 0 var(--input-border-width-focus) var(--interactive-accent) !important;
+}
+
+.tare-input.invalid {
+	border-color: var(--text-error) !important;
+}
+
+.tare-checkbox-wrap input[type="checkbox"] {
+	margin: 0;
+}
+
+.tare-field-errors {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 2px 0 0 0;
+	color: var(--text-error);
+	font-size: var(--font-ui-smaller);
+}
+
+ul.tare-field-errors {
+	list-style: none;
+	margin: 0;
+}
+
+/* Buttons */
+button.tare-button:not(.clickable-icon) {
+	color: var(--text-color);
+	background-color: var(--interactive-normal);
+}
+
+button.tare-button:not(.clickable-icon):hover {
+	background-color: var(--interactive-hover);
+}
+
+button.tare-button:not(.clickable-icon).primary {
+	background-color: var(--interactive-accent);
+	color: var(--text-on-accent);
+}
+
+button.tare-button:not(.clickable-icon).primary:hover {
+	background-color: var(--interactive-accent-hover);
+}
+
+/* Utility classes */
+.tare-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	align-items: center;
+}
+
+.tare-separator {
+	width: 100%;
+	margin: 24px 0;
+}
