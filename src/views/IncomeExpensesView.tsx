@@ -8,6 +8,8 @@ import { useAppContext } from "../hooks/useAppContext";
 import { useDebouncedValue } from "../hooks/useDebouncedValue";
 import { Transaction } from "../helpers/types";
 import { FilterWrap } from "../components/FilterWrap";
+import styles from "./IncomeExpensesView.module.css";
+import CustomDatePicker from "../components/CustomDatePicker";
 
 export function IncomeExpensesView() {
 	const { userPreferences, updateUserPreferences } = useAppContext();
@@ -54,31 +56,27 @@ export function IncomeExpensesView() {
 	return (
 		<>
 			<FilterWrap>
-				<div className="tare-field-group">
+				<div className="tare-row">
 					<span className="tare-label">Date range</span>
-					<DatePicker
+					<CustomDatePicker
 						selected={dateFrom}
-						onChange={(d: Date | null) =>
-							updateUserPreferences({ dateFrom: formatDate(d) })
+						startDate={dateFrom}
+						endDate={dateTo}
+						onChange={([dStart, dEnd]: [
+							Date | null,
+							Date | null,
+						]) =>
+							updateUserPreferences({
+								dateFrom: formatDate(dStart),
+								dateTo: formatDate(dEnd),
+							})
 						}
-						dateFormat="yyyy-MM-dd"
-						placeholderText="From"
-						popperProps={{ strategy: "fixed" }}
-						todayButton="Today"
-					/>
-					<span className="tare-label">—</span>
-					<DatePicker
-						selected={dateTo}
-						onChange={(d: Date | null) =>
-							updateUserPreferences({ dateTo: formatDate(d) })
-						}
-						dateFormat="yyyy-MM-dd"
-						placeholderText="To"
-						popperProps={{ strategy: "fixed" }}
-						todayButton="Today"
+						className={styles.dateRangeInput}
+						wrapperClassName={styles.dateRangeWrap}
+						selectsRange={true}
 					/>
 				</div>
-				<label className="tare-label tare-field-group">
+				<label className="tare-label tare-row tare-checkbox-wrap">
 					<input
 						type="checkbox"
 						checked={userPreferences.hide_zero_balances}

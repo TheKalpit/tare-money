@@ -19,6 +19,7 @@ import {
 } from "../helpers/validation";
 import { extractTags, ValidationError } from "../helpers/utils";
 import { useAppContext } from "../hooks/useAppContext";
+import CustomDatePicker from "./CustomDatePicker";
 
 export function AddTransactionForm({ closeModal }: { closeModal: () => void }) {
 	const [date, setDate] = useState<Date | null>(new Date());
@@ -263,16 +264,13 @@ export function AddTransactionForm({ closeModal }: { closeModal: () => void }) {
 			className={styles.wrap}
 		>
 			<div>
-				<div className={styles.row}>
-					<DatePicker
+				<div className={`tare-row ${styles.dateDescWrap}`}>
+					<CustomDatePicker
 						selected={date}
 						onChange={handleDateChange}
-						dateFormat="yyyy-MM-dd"
 						wrapperClassName={styles.dateInput}
-						className={`tare-input${errors.date ? " invalid" : ""}`}
+						className={errors.date ? "invalid" : ""}
 						placeholderText="YYYY-MM-DD"
-						popperProps={{ strategy: "fixed" }}
-						todayButton="Today"
 					/>
 					<input
 						className={`tare-input ${styles.descriptionInput}${errors.description ? " invalid" : ""}`}

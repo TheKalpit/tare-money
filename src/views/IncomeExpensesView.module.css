@@ -1,0 +1,9 @@
+.dateRangeWrap {
+	flex-shrink: 0;
+	width: 200px;
+}
+
+:global(.tare-date-input).dateRangeInput {
+	width: 100%;
+	max-width: unset;
+}

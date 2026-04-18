@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import styles from "./EntryRow.module.css";
 import { useAppContext } from "../hooks/useAppContext";
 import { AccountCombobox } from "./AccountCombobox";
@@ -31,6 +31,24 @@ export function EntryFormRow({
 	onRemove,
 }: EntryRowProps) {
 	const { accounts } = useAppContext();
+
+	const [showConversion, setShowConversion] = useState(
+		!!entry.conversionAmount || !!entry.conversionCurrency,
+	);
+
+	const toggleConversion = () => {
+		if (showConversion) {
+			onChange({
+				conversionAmount: undefined,
+				conversionCurrency: undefined,
+			});
+			onError({
+				conversionAmount: undefined,
+				conversionCurrency: undefined,
+			});
+		}
+		setShowConversion((v) => !v);
+	};
 
 	const handleAccountBlur = useCallback(() => {
 		try {
@@ -121,71 +139,94 @@ export function EntryFormRow({
 
 	return (
 		<div>
-			<div className={styles.entry}>
-				<AccountCombobox
-					value={entry.account}
-					hasError={!!errors?.account}
-					onValueChange={(value) => onChange({ account: value })}
-					onBlur={handleAccountBlur}
-				/>
+			<div className={styles.wrap}>
+				<div className={`tare-row ${styles.rowWrap}`}>
+					<AccountCombobox
+						value={entry.account}
+						hasError={!!errors?.account}
+						onValueChange={(value) => onChange({ account: value })}
+						onBlur={handleAccountBlur}
+					/>
 
-				<div className={styles.amountGroup}>
-					<input
-						className={`tare-input ${styles.amount}${errors?.amount ? " invalid" : ""}`}
-						placeholder="amount"
-						inputMode="decimal"
-						value={entry.amount ?? ""}
-						onChange={(e) => onChange({ amount: e.target.value })}
-						onBlur={amountOnBlur}
-					/>
-					<input
-						className={`tare-input ${styles.currency}${errors?.currency ? " invalid" : ""}`}
-						placeholder="CUR"
-						value={entry.currency ?? ""}
-						onChange={(e) =>
-							onChange({
-								currency: e.target.value?.toUpperCase(),
-							})
-						}
-						onBlur={currencyOnBlur}
-					/>
+					<div className={styles.amountGroup}>
+						<input
+							className={`tare-input ${styles.amount}${errors?.amount ? " invalid" : ""}`}
+							placeholder="amount"
+							inputMode="decimal"
+							value={entry.amount ?? ""}
+							onChange={(e) =>
+								onChange({ amount: e.target.value })
+							}
+							onBlur={amountOnBlur}
+						/>
+						<input
+							className={`tare-input ${styles.currency}${errors?.currency ? " invalid" : ""}`}
+							placeholder="CUR"
+							value={entry.currency ?? ""}
+							onChange={(e) =>
+								onChange({
+									currency: e.target.value?.toUpperCase(),
+								})
+							}
+							onBlur={currencyOnBlur}
+						/>
+					</div>
+
+					{showConversion && (
+						<div className="tare-row">
+							<div className="tare-label">@@</div>
+							<div className={styles.amountGroup}>
+								<input
+									className={`tare-input ${styles.amount}${errors?.conversionAmount ? " invalid" : ""}`}
+									placeholder="amount"
+									inputMode="decimal"
+									value={entry.conversionAmount ?? ""}
+									onChange={(e) =>
+										onChange({
+											conversionAmount: e.target.value,
+										})
+									}
+									onBlur={convAmountOnBlur}
+								/>
+								<input
+									className={`tare-input ${styles.currency}${errors?.conversionCurrency ? " invalid" : ""}`}
+									placeholder="CUR"
+									value={entry.conversionCurrency ?? ""}
+									onChange={(e) =>
+										onChange({
+											conversionCurrency:
+												e.target.value?.toUpperCase(),
+										})
+									}
+									onBlur={convCurrencyOnBlur}
+								/>
+							</div>
+						</div>
+					)}
 				</div>
-
-				<span className={styles.at}>@@</span>
-
-				<div className={styles.amountGroup}>
-					<input
-						className={`tare-input ${styles.amount}${errors?.conversionAmount ? " invalid" : ""}`}
-						placeholder="amount"
-						inputMode="decimal"
-						value={entry.conversionAmount ?? ""}
-						onChange={(e) =>
-							onChange({ conversionAmount: e.target.value })
-						}
-						onBlur={convAmountOnBlur}
-					/>
-					<input
-						className={`tare-input ${styles.currency}${errors?.conversionCurrency ? " invalid" : ""}`}
-						placeholder="CUR"
-						value={entry.conversionCurrency ?? ""}
-						onChange={(e) =>
-							onChange({
-								conversionCurrency:
-									e.target.value?.toUpperCase(),
-							})
-						}
-						onBlur={convCurrencyOnBlur}
-					/>
-				</div>
-
-				{canRemove && (
+				<div className={`tare-row ${styles.buttonsWrap}`}>
 					<button
-						className={`tare-button ${styles.remove}`}
-						onClick={onRemove}
+						type="button"
+						className={`tare-button ${styles.at} ${showConversion ? styles.atActive : ""}`}
+						onClick={toggleConversion}
+						aria-pressed={showConversion}
+						title={
+							showConversion
+								? "Remove conversion"
+								: "Add currency conversion"
+						}
 					>
-						×
+						@@
 					</button>
-				)}
+					{canRemove && (
+						<button
+							className={`tare-button ${styles.remove}`}
+							onClick={onRemove}
+						>
+							×
+						</button>
+					)}
+				</div>
 			</div>
 			{hasError && (
 				<ul className={"tare-field-errors"}>

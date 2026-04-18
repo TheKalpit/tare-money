@@ -66,7 +66,7 @@ export function AccountCombobox({
 		<div className={styles.wrap}>
 			<input
 				{...getInputProps({ onBlur })}
-				className={`tare-input ${hasError ? ` invalid` : ""}`}
+				className={`tare-input ${styles.input} ${hasError ? ` invalid` : ""}`}
 				placeholder={placeholder}
 			/>
 			<ul {...getMenuProps()} className={styles.menu}>

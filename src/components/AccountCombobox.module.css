@@ -1,7 +1,11 @@
 .wrap {
 	position: relative;
-	flex: 1;
-	min-width: 0;
+	flex: 1 1 200px;
+	min-width: 200px;
+}
+
+.wrap .input {
+	width: 100%;
 }
 
 .menu {

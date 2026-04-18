@@ -1,17 +1,16 @@
 .wrap {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: 6px;
 }
 
-.row {
-	display: flex;
+.dateDescWrap {
+	gap: 0 !important;
 }
 
 .dateInput {
-	width: 100px;
 	flex-shrink: 0;
-	margin-right: 8px;
+	margin-right: 6px;
 }
 
 .descriptionInput {
@@ -21,8 +20,8 @@
 .entries {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
-	margin-bottom: 8px;
+	gap: 6px;
+	margin-bottom: 6px;
 }
 
 .footer {

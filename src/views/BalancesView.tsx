@@ -8,6 +8,7 @@ import { formatDate } from "../helpers/utils";
 import { FilterWrap } from "../components/FilterWrap";
 import { Transaction } from "../helpers/types";
 import { useAppContext } from "../hooks/useAppContext";
+import CustomDatePicker from "../components/CustomDatePicker";
 
 export function BalancesView() {
 	const { userPreferences, updateUserPreferences } = useAppContext();
@@ -43,17 +44,14 @@ export function BalancesView() {
 	return (
 		<>
 			<FilterWrap>
-				<div className="tare-field-group">
+				<div className="tare-row">
 					<span className="tare-label">As of</span>
-					<DatePicker
+					<CustomDatePicker
 						selected={selectedDate}
 						onChange={setSelectedDate}
-						dateFormat="yyyy-MM-dd"
-						popperProps={{ strategy: "fixed" }}
-						todayButton="Today"
 					/>
 				</div>
-				<label className="tare-label tare-field-group">
+				<label className="tare-label tare-row tare-checkbox-wrap">
 					<input
 						type="checkbox"
 						checked={userPreferences.hide_zero_balances}

@@ -32,8 +32,7 @@ A plain-text accounting (PTA) plugin for Obsidian. Your transactions live as pla
 While the plugin is not in the community directory (yet), install it using [BRAT](https://github.com/TfTHacker/obsidian42-brat):
 
 > Note: This is a beta release. The plugin works but isn't declared stable yet —
-format, UI, or storage layout may change between releases. Back up your    
-vault before installing, and report any issues on GitHub.
+format, UI, or storage layout may change between releases. Back up your vault before installing, and report any issues on GitHub.
 
 1. Install and enable **Obsidian42 - BRAT** from Community Plugins.
 2. In BRAT settings, **Add Beta Plugin**.
