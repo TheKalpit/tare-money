@@ -333,21 +333,13 @@ export default class TareMoneyPlugin extends Plugin {
 	 * Formats a Transaction to PTA text for writing to file.
 	 */
 	private formatTransaction(txn: Transaction): string {
-		const TARGET_WIDTH = 64;
 		const INDENT = "  ";
-		const MIN_GAP = 2;
+		const GAP = "  ";
 
 		const lines = [`${txn.date} ${txn.description}`];
 
 		txn.entries.forEach((entry) => {
-			const amountCurrency = `${entry.amount} ${entry.currency}`;
-			const contentLen =
-				INDENT.length + entry.account.length + amountCurrency.length;
-			const padding = " ".repeat(
-				Math.max(MIN_GAP, TARGET_WIDTH - contentLen),
-			);
-
-			let line = `${INDENT}${entry.account}${padding}${amountCurrency}`;
+			let line = `${INDENT}${entry.account}${GAP}${entry.amount} ${entry.currency}`;
 
 			if (entry.conversion) {
 				line += ` @@ ${entry.conversion.amount} ${entry.conversion.currency}`;
