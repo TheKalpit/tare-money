@@ -99,6 +99,10 @@
 	max-width: 120px;
 }
 
+.tare-date-input.date-range-input {
+	max-width: unset;
+}
+
 .tare-date-input:focus,
 .tare-input:focus {
 	box-shadow: 0 0 0 var(--input-border-width-focus) var(--interactive-accent) !important;
@@ -156,4 +160,11 @@ button.tare-button:not(.clickable-icon).primary:hover {
 .tare-separator {
 	width: 100%;
 	margin: 24px 0;
+}
+
+.no-data-message {
+	text-align: center;
+	color: var(--text-faint);
+	font-style: italic;
+	padding: 16px 8px;
 }

@@ -1,0 +1,44 @@
+.item {
+	padding: 0.75rem 0;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.header {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: 0.5rem 0.75rem;
+	margin-bottom: 0.25rem;
+}
+
+.date {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+.entries {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	padding-left: 1rem;
+}
+
+.entry {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	font-size: var(--font-ui-small);
+}
+
+.account {
+	color: var(--text-muted);
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.amount {
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}

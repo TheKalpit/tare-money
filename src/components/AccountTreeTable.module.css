@@ -116,10 +116,3 @@
 	border-top: 2px solid var(--background-modifier-border);
 	font-weight: 600;
 }
-
-.empty {
-	text-align: center;
-	color: var(--text-faint);
-	font-style: italic;
-	padding: 16px 8px;
-}

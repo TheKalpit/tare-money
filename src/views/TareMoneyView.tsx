@@ -13,6 +13,7 @@ import { TabButton } from "../components/TabButton";
 import { useAppContext } from "../hooks/useAppContext";
 import { ViewTab } from "../helpers/types";
 import { FC } from "react";
+import { TransactionListView } from "./TransactionListView";
 
 export const VIEW_TYPE_TARE_MONEY = "tare-money-view";
 
@@ -27,6 +28,11 @@ const TABS: Record<ViewTab, { label: string; icon: string; view: FC }> = {
 		label: "Income & Expenses",
 		icon: "trending-up-down",
 		view: IncomeExpensesView,
+	},
+	"transaction-list": {
+		label: "Transactions",
+		icon: "notebook-text",
+		view: TransactionListView,
 	},
 } as const;
 

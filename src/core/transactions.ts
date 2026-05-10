@@ -36,8 +36,8 @@ export async function loadTransactions(
 		}
 	}
 
-	// Chronological order across all files
-	transactions.sort((a, b) => a.date.localeCompare(b.date));
+	// Reverse chronological order across all files (newest first)
+	transactions.sort((a, b) => b.date.localeCompare(a.date));
 
 	return { transactions, errors };
 }

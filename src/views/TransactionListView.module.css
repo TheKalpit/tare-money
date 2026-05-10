@@ -1,0 +1,9 @@
+.dateRangeWrap {
+	flex-shrink: 0;
+	width: 200px;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+}

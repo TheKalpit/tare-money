@@ -224,7 +224,7 @@ export function AccountTreeTable({
 				))}
 				{rows.length === 0 && (
 					<tr>
-						<td colSpan={2} className={styles.empty}>
+						<td colSpan={2} className="no-data-message">
 							No data.
 						</td>
 					</tr>

@@ -184,18 +184,17 @@ export default class TareMoneyPlugin extends Plugin {
 		this.notify();
 	}
 
-	/** Maps each account to its most recent currency. Most recently used accounts first. */
+	/** Maps each account to its most recent currency. Most recently used accounts first. Assumes `transactions` is in newest-first order. */
 	private collectAccounts(transactions: Transaction[]): Map<string, string> {
 		const map = new Map<string, string>();
 		transactions.forEach((txn) => {
 			txn.entries.forEach((entry) => {
-				if (entry.currency) {
-					map.delete(entry.account);
+				if (entry.currency && !map.has(entry.account)) {
 					map.set(entry.account, entry.currency);
 				}
 			});
 		});
-		return new Map([...map.entries()].reverse());
+		return map;
 	}
 
 	private registerFileWatchers(): void {

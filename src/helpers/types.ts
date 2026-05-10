@@ -36,7 +36,11 @@ export interface ParseResult {
 	errors: ParseError[];
 }
 
-export type ViewTab = "balances" | "income-expenses" | "add-transaction";
+export type ViewTab =
+	| "balances"
+	| "income-expenses"
+	| "add-transaction"
+	| "transaction-list";
 
 export interface UserPreferences {
 	activeTab: ViewTab;

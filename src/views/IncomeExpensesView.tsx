@@ -71,7 +71,7 @@ export function IncomeExpensesView() {
 								dateTo: formatDate(dEnd),
 							})
 						}
-						className={styles.dateRangeInput}
+						className="date-range-input"
 						wrapperClassName={styles.dateRangeWrap}
 						selectsRange={true}
 					/>
