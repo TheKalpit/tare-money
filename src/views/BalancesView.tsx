@@ -68,6 +68,7 @@ export function BalancesView() {
 				accountBalances={assetAccountBalances}
 				label="Assets"
 				amountLabel="Balance"
+				showAbsolute
 				hideZeroBalances={userPreferences.hide_zero_balances}
 			/>
 			<div className="tare-separator" />
@@ -75,6 +76,7 @@ export function BalancesView() {
 				accountBalances={liabilityAccountBalances}
 				label="Liabilities"
 				amountLabel="Balance"
+				showAbsolute
 				hideZeroBalances={userPreferences.hide_zero_balances}
 			/>
 		</>
