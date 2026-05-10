@@ -1,7 +1,5 @@
 import React, { useState, useCallback } from "react";
-import DatePicker from "react-datepicker";
-import { EntryFormRow } from "./EntryFormRow";
-import styles from "./AddTransactionForm.module.css";
+import styles from "./AddTransactionView.module.css";
 import {
 	TransactionFormErrors,
 	TransactionFormEntry,
@@ -19,9 +17,10 @@ import {
 } from "../helpers/validation";
 import { extractTags, ValidationError } from "../helpers/utils";
 import { useAppContext } from "../hooks/useAppContext";
-import CustomDatePicker from "./CustomDatePicker";
+import CustomDatePicker from "../components/CustomDatePicker";
+import { EntryFormRow } from "../components/EntryFormRow";
 
-export function AddTransactionForm({ closeModal }: { closeModal: () => void }) {
+export function AddTransactionView() {
 	const [date, setDate] = useState<Date | null>(new Date());
 	const [description, setDescription] = useState("");
 	const [entries, setEntries] = useState<TransactionFormEntry[]>([
@@ -89,6 +88,16 @@ export function AddTransactionForm({ closeModal }: { closeModal: () => void }) {
 			}
 		}
 	}, [description]);
+
+	const resetForm = () => {
+		setDate(new Date());
+		setDescription("");
+		setEntries([
+			{ id: crypto.randomUUID(), account: "", amount: "", currency: "" },
+			{ id: crypto.randomUUID(), account: "", amount: "", currency: "" },
+		]);
+		setErrors({ entries: {} });
+	};
 
 	// Submit: validate → build typed Transaction → save
 	const handleSave = async () => {
@@ -240,7 +249,7 @@ export function AddTransactionForm({ closeModal }: { closeModal: () => void }) {
 			setSaving(true);
 			await saveTransactionToFile(transaction);
 			setErrors({ entries: {} });
-			closeModal();
+			resetForm();
 		} catch (e) {
 			if (e instanceof ValidationError) {
 				setErrors({
@@ -330,7 +339,7 @@ export function AddTransactionForm({ closeModal }: { closeModal: () => void }) {
 					className="tare-button primary"
 					disabled={saving}
 				>
-					{saving ? "Saving…" : "Save"}
+					{saving ? "Adding…" : "Add Transaction"}
 				</button>
 			</div>
 		</form>

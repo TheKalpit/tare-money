@@ -49,7 +49,7 @@ Download `main.js`, `manifest.json`, and `styles.css` from the [latest release](
 
 1. Open the view via the ribbon wallet icon, or run **Tare Money: Open view** from the command palette.
 2. In settings, set your transactions directory (default: `transactions`).
-3. Add a transaction via the ribbon or **Tare Money: Add transaction**.
+3. Open the **Add Transaction** tab in the view to record a new transaction.
 4. Your transaction is saved to `<transactions-dir>/<year>.md` as plain text.
 
 ## Transaction format

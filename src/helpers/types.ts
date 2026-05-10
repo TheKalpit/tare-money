@@ -36,7 +36,7 @@ export interface ParseResult {
 	errors: ParseError[];
 }
 
-export type ViewTab = "balances" | "income-expenses";
+export type ViewTab = "balances" | "income-expenses" | "add-transaction";
 
 export interface UserPreferences {
 	activeTab: ViewTab;
@@ -63,7 +63,6 @@ export interface AppContextData {
 	readonly updateUserPreferences: (updates: Partial<UserPreferences>) => void;
 	readonly updateSearchQuery: (query: string) => void;
 	readonly reloadStaleData: () => Promise<void>;
-	readonly openAddTransactionModal: () => void;
 	readonly saveTransactionToFile: (transaction: Transaction) => Promise<void>;
 }
 

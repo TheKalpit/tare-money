@@ -1,7 +1,6 @@
 import { normalizePath, Notice, Plugin, TFolder } from "obsidian";
 import { TareMoneySettingTab } from "./helpers/settings";
 import { TareMoneyView, VIEW_TYPE_TARE_MONEY } from "./views/TareMoneyView";
-import { AddTransactionModal } from "./modals/AddTransactionModal";
 import {
 	Transaction,
 	ParseError,
@@ -49,12 +48,6 @@ export default class TareMoneyPlugin extends Plugin {
 			id: "open-view",
 			name: "Open view",
 			callback: () => void this.openMainView(),
-		});
-
-		this.addCommand({
-			id: "add-transaction",
-			name: "Add transaction",
-			callback: () => void this.openAddTransactionModal(),
 		});
 
 		this.addSettingTab(
@@ -124,10 +117,6 @@ export default class TareMoneyPlugin extends Plugin {
 	private reloadStaleData = async () => {
 		await this.loadSyncedConfigData();
 		this.loadTransactionData();
-	};
-
-	private openAddTransactionModal = () => {
-		new AddTransactionModal(this).open();
 	};
 
 	// --- Internal helpers ---
@@ -387,7 +376,6 @@ export default class TareMoneyPlugin extends Plugin {
 		updateUserPreferences: this.saveUserPreferences,
 		updateSearchQuery: this.updateSearchQuery,
 		reloadStaleData: this.reloadStaleData,
-		openAddTransactionModal: this.openAddTransactionModal,
 		saveTransactionToFile: this.saveTransactionToFile,
 	};
 }

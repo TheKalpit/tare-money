@@ -2,20 +2,33 @@ import { ItemView, WorkspaceLeaf } from "obsidian";
 import { Root, createRoot } from "react-dom/client";
 import type TareMoneyPlugin from "../main";
 import { LoadingSpinner } from "../components/LoadingSpinner";
+import { AddTransactionView } from "./AddTransactionView";
 import { BalancesView } from "./BalancesView";
 import { IncomeExpensesView } from "./IncomeExpensesView";
 import styles from "./TareMoneyView.module.css";
 import { GlobalFilters } from "../components/GlobalFilters";
 import { ParseErrorList } from "../components/ParseErrorList";
 import ReactViewRootWrap from "../components/ReactViewRootWrap";
+import { TabButton } from "../components/TabButton";
 import { useAppContext } from "../hooks/useAppContext";
+import { ViewTab } from "../helpers/types";
+import { FC } from "react";
 
 export const VIEW_TYPE_TARE_MONEY = "tare-money-view";
 
-const TABS = [
-	{ id: "balances" as const, label: "Balances" },
-	{ id: "income-expenses" as const, label: "Income & Expenses" },
-] as const;
+const TABS: Record<ViewTab, { label: string; icon: string; view: FC }> = {
+	"add-transaction": {
+		label: "Add Transaction",
+		icon: "plus",
+		view: AddTransactionView,
+	},
+	balances: { label: "Balances", icon: "landmark", view: BalancesView },
+	"income-expenses": {
+		label: "Income & Expenses",
+		icon: "trending-up-down",
+		view: IncomeExpensesView,
+	},
+} as const;
 
 export class TareMoneyView extends ItemView {
 	private root: Root | null = null;
@@ -60,16 +73,16 @@ function TareMoneyViewComponent() {
 	const {
 		userPreferences,
 		transactionsLoading,
-		updateUserPreferences,
 		parseErrors,
 		transactionsStale,
 		reloadStaleData,
-		openAddTransactionModal,
 	} = useAppContext();
 
 	if (transactionsLoading) {
 		return <LoadingSpinner message="Loading…" />;
 	}
+
+	const ActiveView = TABS[userPreferences.activeTab].view;
 
 	return (
 		<>
@@ -85,32 +98,18 @@ function TareMoneyViewComponent() {
 			{parseErrors?.length > 0 && <ParseErrorList errors={parseErrors} />}
 			<GlobalFilters />
 			<div className={styles.tabs}>
-				{TABS.map((tab) => (
-					<button
-						key={tab.id}
-						className={`${styles.tab}${userPreferences.activeTab === tab.id ? ` ${styles.active}` : ""}`}
-						onClick={() =>
-							updateUserPreferences({ activeTab: tab.id })
-						}
-					>
-						{tab.label}
-					</button>
+				{Object.entries(TABS).map(([tabId, tab]) => (
+					<TabButton
+						key={tabId}
+						id={tabId as ViewTab}
+						label={tab.label}
+						icon={tab.icon}
+					/>
 				))}
-				<button
-					className={`${styles.tab} ${styles.addBtn}`}
-					onClick={openAddTransactionModal}
-					aria-label="Add transaction"
-				>
-					+
-				</button>
 			</div>
 
 			<div>
-				{userPreferences.activeTab === "balances" ? (
-					<BalancesView />
-				) : (
-					<IncomeExpensesView />
-				)}
+				<ActiveView />
 			</div>
 		</>
 	);
