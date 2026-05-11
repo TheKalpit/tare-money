@@ -114,7 +114,7 @@ function TareMoneyViewComponent() {
 				))}
 			</div>
 
-			<div>
+			<div className={styles.tabContentWrap}>
 				<ActiveView />
 			</div>
 		</>

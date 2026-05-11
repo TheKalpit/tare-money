@@ -1,8 +1,8 @@
 .wrap {
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
-	padding: 8px 12px;
+	gap: var(--size-4-1);
+	padding: var(--size-4-2) var(--size-4-3);
 	background: var(--background-secondary);
 }
 
@@ -12,7 +12,7 @@
 
 .dateInput {
 	flex-shrink: 0;
-	margin-right: 6px;
+	margin-right: var(--size-4-1);
 }
 
 .descriptionInput {
@@ -22,13 +22,13 @@
 .entries {
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
-	margin-bottom: 6px;
+	gap: var(--size-4-1);
+	margin-bottom: var(--size-4-1);
 }
 
 .footer {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-top: 8px;
+	margin-top: var(--size-4-2);
 }

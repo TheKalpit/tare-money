@@ -1,10 +1,14 @@
 .tabs {
 	display: flex;
 	overflow-x: auto;
-	border-bottom: 1px solid var(--background-secondary);
+	border-bottom: var(--border-width) solid var(--background-secondary);
 	scrollbar-width: none;
 }
 
 .tabs::-webkit-scrollbar {
 	display: none;
+}
+
+.tabContentWrap {
+	padding-bottom: var(--size-4-18);
 }

@@ -3,7 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 24px 0;
+	padding: var(--size-4-6) 0;
 	color: var(--text-muted);
 }
 

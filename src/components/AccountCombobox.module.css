@@ -16,7 +16,7 @@
 	padding: 0;
 	list-style: none;
 	background: var(--background-primary);
-	border: 1px solid var(--background-modifier-border);
+	border: var(--border-width) solid var(--background-modifier-border);
 	border-radius: var(--radius-s);
 	box-shadow: var(--shadow-s);
 	z-index: var(--layer-popover);
@@ -27,9 +27,8 @@
 }
 
 .item {
-	padding: 4px 8px;
+	padding: var(--size-4-1) var(--size-4-2);
 	font-size: var(--font-ui-small);
-	cursor: pointer;
 }
 
 .item:hover {

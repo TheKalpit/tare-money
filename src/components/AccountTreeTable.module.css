@@ -1,5 +1,5 @@
 .table {
-	--row-pad-y: 6px;
+	--row-pad-y: var(--size-4-1);
 	--line-x: 0.3em;
 	width: 100%;
 	border-collapse: collapse;
@@ -14,14 +14,15 @@
 
 .table th {
 	text-align: left;
-	padding: var(--row-pad-y) 8px;
-	border-bottom: 2px solid var(--background-modifier-border);
+	padding: var(--row-pad-y) var(--size-4-2);
+	border-bottom: calc(var(--border-width) * 2) solid
+		var(--background-modifier-border);
 	color: var(--text-muted);
-	font-weight: 600;
+	font-weight: var(--font-semibold);
 }
 
 .table td {
-	padding: 0 8px;
+	padding: 0 var(--size-4-2);
 	vertical-align: top;
 	height: 100%;
 }
@@ -36,11 +37,7 @@
 	text-align: end !important;
 	font-variant-numeric: tabular-nums;
 	white-space: nowrap;
-	padding: var(--row-pad-y) 8px !important;
-}
-
-.parent {
-	cursor: pointer;
+	padding: var(--row-pad-y) var(--size-4-2) !important;
 }
 
 /* Tree structure */
@@ -60,7 +57,7 @@
 	left: var(--line-x);
 	top: 0;
 	bottom: 0;
-	border-left: 1px solid var(--text-faint);
+	border-left: var(--border-width) solid var(--text-faint);
 }
 
 /* Branch horizontal dash — anchored to first text line (not row middle) */
@@ -70,7 +67,7 @@
 	left: var(--line-x);
 	right: 0;
 	top: calc(var(--row-pad-y) + 0.5lh);
-	border-top: 1px solid var(--text-faint);
+	border-top: var(--border-width) solid var(--text-faint);
 }
 
 /* Last branch (└) — vertical stops at the first-line dash */
@@ -80,7 +77,7 @@
 	left: var(--line-x);
 	top: 0;
 	height: calc(var(--row-pad-y) + 0.5lh);
-	border-left: 1px solid var(--text-faint);
+	border-left: var(--border-width) solid var(--text-faint);
 }
 
 /* Downward link from an expanded parent to its first child — drawn in the parent's row
@@ -97,22 +94,23 @@
 	left: var(--line-x);
 	top: calc(var(--row-pad-y) * 2 + 1lh);
 	bottom: 0;
-	border-left: 1px solid var(--text-faint);
+	border-left: var(--border-width) solid var(--text-faint);
 }
 
 .collapsed {
 	color: var(--text-muted);
 	user-select: none;
-	margin-left: 4px;
+	margin-left: var(--size-4-1);
 	padding: var(--row-pad-y) 0;
 }
 
 .name {
 	white-space: nowrap;
-	padding: var(--row-pad-y) 0 var(--row-pad-y) 4px;
+	padding: var(--row-pad-y) 0 var(--row-pad-y) var(--size-4-1);
 }
 
 .totalRow td {
-	border-top: 2px solid var(--background-modifier-border);
-	font-weight: 600;
+	border-top: calc(var(--border-width) * 2) solid
+		var(--background-modifier-border);
+	font-weight: var(--font-semibold);
 }

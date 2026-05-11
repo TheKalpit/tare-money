@@ -1,5 +1,5 @@
 .wrap {
-	margin-bottom: 12px;
+	margin-bottom: var(--size-4-3);
 }
 
 .searchInput {

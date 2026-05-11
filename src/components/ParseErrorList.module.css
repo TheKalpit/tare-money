@@ -1,15 +1,15 @@
 .container {
 	background: var(--background-modifier-message);
 	border-radius: var(--radius-s);
-	padding: 8px 12px;
-	margin-bottom: 12px;
+	padding: var(--size-4-2) var(--size-4-3);
+	margin-bottom: var(--size-4-3);
 	font-size: var(--font-ui-small);
 	color: var(--text-error);
 }
 
 .header {
-	font-weight: 600;
-	margin-bottom: 6px;
+	font-weight: var(--font-semibold);
+	margin-bottom: var(--size-4-1);
 }
 
 .list {
@@ -21,9 +21,9 @@
 .item {
 	display: flex;
 	flex-direction: column;
-	gap: 2px;
-	padding: 4px 0;
-	border-bottom: 1px solid var(--background-modifier-border);
+	gap: var(--size-2-1);
+	padding: var(--size-4-1) 0;
+	border-bottom: var(--border-width) solid var(--background-modifier-border);
 }
 
 .item:last-child {

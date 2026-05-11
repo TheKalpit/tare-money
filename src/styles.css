@@ -50,29 +50,28 @@
 .tare-money-icon-stale::after {
 	content: "";
 	position: absolute;
-	top: 4px;
-	right: 4px;
-	width: 8px;
-	height: 8px;
+	top: var(--size-4-1);
+	right: var(--size-4-1);
+	width: var(--size-4-2);
+	height: var(--size-4-2);
 	border-radius: 50%;
 	background: var(--interactive-accent);
 }
 
 /* Stale banner */
 .tare-stale-banner {
-	padding: 8px 16px;
+	padding: var(--size-4-2) var(--size-4-4);
 	background: var(--background-modifier-message);
 	font-size: var(--font-ui-small);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 12px;
+	margin-bottom: var(--size-4-3);
 }
 
 .tare-stale-banner,
 .tare-stale-banner button {
 	color: var(--text-warning);
-	cursor: pointer;
 }
 
 .tare-stale-banner:hover {
@@ -86,8 +85,8 @@
 }
 
 .tare-input {
-	padding: 6px 8px;
-	border: 1px solid var(--background-modifier-border);
+	padding: var(--size-4-1) var(--size-4-2);
+	border: var(--border-width) solid var(--background-modifier-border);
 	border-radius: var(--radius-s);
 	background: var(--background-primary);
 	color: var(--text-normal);
@@ -119,8 +118,8 @@
 .tare-field-errors {
 	display: flex;
 	flex-direction: column;
-	gap: 2px;
-	padding: 2px 0 0 0;
+	gap: var(--size-2-1);
+	padding: var(--size-2-1) 0 0 0;
 	color: var(--text-error);
 	font-size: var(--font-ui-smaller);
 }
@@ -153,18 +152,18 @@ button.tare-button:not(.clickable-icon).primary:hover {
 .tare-row {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 6px;
+	gap: var(--size-4-1);
 	align-items: center;
 }
 
 .tare-separator {
 	width: 100%;
-	margin: 24px 0;
+	margin: var(--size-4-8) 0;
 }
 
 .no-data-message {
 	text-align: center;
 	color: var(--text-faint);
 	font-style: italic;
-	padding: 16px 8px;
+	padding: var(--size-4-4) var(--size-4-2);
 }

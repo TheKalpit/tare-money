@@ -1,7 +1,7 @@
 .wrap {
 	display: flex;
 	flex-wrap: nowrap;
-	gap: 6px;
+	gap: var(--size-4-2);
 }
 
 .rowWrap {

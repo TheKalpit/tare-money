@@ -182,7 +182,6 @@ export function AccountTreeTable({
 				{rows.map((row) => (
 					<tr
 						key={row.id}
-						className={row.hasChildren ? styles.parent : undefined}
 						onClick={
 							row.hasChildren ? () => toggle(row.id) : undefined
 						}

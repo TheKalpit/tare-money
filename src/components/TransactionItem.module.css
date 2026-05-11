@@ -1,14 +1,14 @@
 .item {
-	padding: 0.75rem 0;
-	border-bottom: 1px solid var(--background-modifier-border);
+	padding: var(--size-4-3) 0;
+	border-bottom: var(--border-width) solid var(--background-modifier-border);
 }
 
 .header {
 	display: flex;
 	align-items: baseline;
 	flex-wrap: wrap;
-	gap: 0.5rem 0.75rem;
-	margin-bottom: 0.25rem;
+	gap: var(--size-4-2) var(--size-4-3);
+	margin-bottom: var(--size-4-1);
 }
 
 .date {
@@ -21,14 +21,14 @@
 .entries {
 	display: flex;
 	flex-direction: column;
-	gap: 0.25rem;
-	padding-left: 1rem;
+	gap: var(--size-4-1);
+	padding-left: var(--size-4-4);
 }
 
 .entry {
 	display: flex;
 	justify-content: space-between;
-	gap: 1rem;
+	gap: var(--size-4-4);
 	font-size: var(--font-ui-small);
 }
 
