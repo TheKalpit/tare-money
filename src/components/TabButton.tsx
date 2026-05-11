@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { setIcon } from "obsidian";
 import styles from "./TabButton.module.css";
 import { useAppContext } from "../hooks/useAppContext";
-import { ViewTab } from "../helpers/types";
+import { ViewTab } from "../helpers/settings";
 
 export function TabButton({
 	id,

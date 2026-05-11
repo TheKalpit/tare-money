@@ -5,7 +5,7 @@ import { AccountCombobox } from "./AccountCombobox";
 import {
 	TransactionEntryFieldErrors,
 	TransactionFormEntry,
-} from "../helpers/types";
+} from "../views/AddTransactionView.types";
 import {
 	validateAccount,
 	validateAmount,

@@ -1,6 +1,6 @@
 import { Vault, TFile, TFolder } from "obsidian";
-import { Transaction, ParseError, ParseResult } from "../helpers/types";
-import { parse } from "./parser";
+import { Transaction } from "../helpers/types";
+import { parse, ParseError, ParseResult } from "./parser";
 
 /**
  * Loads and parses all .md files from the transactions directory.

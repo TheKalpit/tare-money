@@ -15,8 +15,6 @@
 
 import {
 	Transaction,
-	ParseError,
-	ParseResult,
 	AmountWithCurrency,
 	PartialTransactionEntry,
 } from "../helpers/types";
@@ -30,6 +28,18 @@ import {
 	validateTransaction,
 } from "../helpers/validation";
 import { extractTags, ValidationError } from "../helpers/utils";
+
+export interface ParseError {
+	lineNumber: number;
+	message: string;
+	lineContent: string;
+	sourceFile?: string;
+}
+
+export interface ParseResult {
+	transactions: Transaction[];
+	errors: ParseError[];
+}
 
 // YYYY-MM-DD followed by description text
 const DATE_LINE = /^(\d{4}-\d{2}-\d{2})\s+(.+)$/;

@@ -1,8 +1,12 @@
 import { useMemo } from "react";
-import type { AccountBalance, Transaction } from "../helpers/types";
+import type { Transaction } from "../helpers/types";
 import { useAppContext } from "./useAppContext";
 import { useDebouncedValue } from "./useDebouncedValue";
 import { DEBOUNCE_MS } from "../helpers/constants";
+
+export interface AccountBalance {
+	currencies: Map<string, number>;
+}
 
 /**
  * Filters transactions and accumulates per-account, per-currency balances in a single pass.

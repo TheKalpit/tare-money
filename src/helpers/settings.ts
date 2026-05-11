@@ -2,7 +2,24 @@ import { App, PluginSettingTab, Setting } from "obsidian";
 import type TareMoneyPlugin from "../main";
 import { getDefaultSettings } from "./utils";
 import { NUMBER_FORMATS } from "./constants";
-import { TareMoneySettings } from "./types";
+
+export type ViewTab =
+	| "balances"
+	| "income-expenses"
+	| "add-transaction"
+	| "transaction-list";
+
+export interface UserPreferences {
+	activeTab: ViewTab;
+	dateTo: string;
+	dateFrom: string;
+	hide_zero_balances: boolean;
+}
+
+export interface TareMoneySettings {
+	transactionsDir: string;
+	numberLocale: string;
+}
 
 export class TareMoneySettingTab extends PluginSettingTab {
 	private settings: Partial<TareMoneySettings>;

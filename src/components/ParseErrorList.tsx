@@ -1,4 +1,4 @@
-import type { ParseError } from "../helpers/types";
+import type { ParseError } from "../core/parser";
 import styles from "./ParseErrorList.module.css";
 
 const MAX_VISIBLE = 50;

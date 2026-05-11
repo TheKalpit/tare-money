@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { useAppContext } from "../hooks/useAppContext";
 import styles from "./AccountTreeTable.module.css";
-import type { AccountBalance } from "../helpers/types";
+import type { AccountBalance } from "../hooks/useProcessedTransactions";
 import {
 	ACCOUNT_PREFIX,
 	ACCOUNT_SEPARATOR,

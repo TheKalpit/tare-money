@@ -11,7 +11,7 @@ import { ParseErrorList } from "../components/ParseErrorList";
 import ReactViewRootWrap from "../components/ReactViewRootWrap";
 import { TabButton } from "../components/TabButton";
 import { useAppContext } from "../hooks/useAppContext";
-import { ViewTab } from "../helpers/types";
+import { ViewTab } from "../helpers/settings";
 import { FC } from "react";
 import { TransactionListView } from "./TransactionListView";
 

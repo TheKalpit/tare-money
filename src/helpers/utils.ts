@@ -1,4 +1,4 @@
-import { type TareMoneySettings, UserPreferences } from "./types";
+import type { TareMoneySettings, UserPreferences } from "./settings";
 import { DEFAULT_TRANSACTIONS_DIR, NUMBER_FORMATS } from "./constants";
 import { moment } from "obsidian";
 

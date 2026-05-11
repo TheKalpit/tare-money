@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from "react";
 import styles from "./AddTransactionView.module.css";
+import { PartialTransactionEntry } from "../helpers/types";
 import {
 	TransactionFormErrors,
 	TransactionFormEntry,
 	TransactionEntryFieldErrors,
-	PartialTransactionEntry,
-} from "../helpers/types";
+} from "./AddTransactionView.types";
 import {
 	validateTransaction,
 	validateEntry,
